@@ -1,0 +1,167 @@
+@import  "../../App.scss";
+
+.header{
+    background-color: black;
+    padding: 10px;
+    color: white;
+    .logo-img{
+        width: 100%;
+    }
+    .inputrow{
+        background-color: white;
+        font-size: 1.1em;
+        padding: 2% 1%;
+        border-radius: 5px;
+        input{
+            outline: none;
+            border: none;
+            width: 100%;
+        }
+    }
+    .icon-container{
+        text-align: right;
+        .icon-bg{
+            background-color: white;
+            color: black;
+        }
+        .cart-container{
+            margin-right: 15px;
+        }
+    }
+}
+@media (max-width: 992px) {
+    .pincode{
+        text-align: right !important;
+    }
+}
+@media (max-width: 768px) {
+
+    .pincode{
+        text-align: right !important;
+    }
+}
+@media (max-width: 576px) {
+    .searchicon{
+        display: none !important;
+    }
+    .inputrow{
+        padding:4% !important;
+    }
+    .pincode{
+        text-align: right !important;
+    }
+    
+
+    .icon-container{
+        text-align: right;
+        .icon-bg{
+            background-color: white;
+            color: black;
+            font-size: 1em;
+        }
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .header{
+//     height: 10vh;
+//     background-color: black;
+//     padding:.5%;
+//     .imgdiv{
+//         img{
+//             width: 12vw;
+//             margin-left: 5%;
+//         }
+//         p{
+//             color: white;
+//             margin:0 50px;
+//         }
+//     }
+//     .inputdiv{
+//         width: 60%;
+//         input{
+//             width: 80%;
+//             border-radius: 5px;
+//             border: none;
+//             padding:1.5% 2%;
+//         }
+//         input:focus{
+//             outline: none;
+//         }
+//     }
+//     .icondiv{
+//         color: white;
+//         .icon{
+//             font-size: 1.6em;
+//         }
+      
+//         padding-right: 2%;
+//     }
+//     .icon-bg{
+//         background-color: #F5F9FC;
+//         color: black;
+//     }
+//     .icon-bg:hover{
+//         background-color: rgb(146, 146, 146);
+//     }
+//     .icon-bg-cart{
+//         background-color: #F5F9FC;
+//         margin-right: 15px;
+//         color: black;
+//     }
+//     .icon-bg-cart:hover{
+//         background-color: rgb(146, 146, 146);
+//     }
+// }
+
+
+// @media (max-width: 992px) {
+
+// }
+// @media (max-width: 768px) {
+
+
+// }
+// @media (max-width: 576px) {
+//     .header{
+//         height: 10vh;
+//         .imgdiv{
+//             img{
+//                 width: 20vw;
+//             }
+//         }
+//         .inputdiv{
+//             width: 50%;
+//             input{
+//                 width: 100%;
+//                 border-radius: 5px;
+//                 border: none;
+//                 padding:5% 4%;
+//             }
+//             input:focus{
+//                 outline: none;
+//             }
+//         }
+//         .icondiv{
+//             height: 100%;
+//             color: white;
+//             .icon{
+//                 font-size: 1em;
+//             }
+//         }
+//     }
+    
+// }
+

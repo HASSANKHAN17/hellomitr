@@ -1,0 +1,29 @@
+@import  "../../../App.scss";
+
+
+.menu{
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 5%;
+    .container-heading{
+        padding:5% 5% 1% 5%;
+        font-size: 1.2em;
+        opacity: .8;
+    }
+    .link-container{
+        margin: 3% 0;
+        padding:1% 7%;
+        .heading{
+            margin-left: 2%;
+        }
+    }
+    .link-container:hover{
+        cursor: pointer;
+        color: $primary;
+        border-left: 2px solid $primary;
+    }
+    .active{
+        color: $primary;
+        border-left: 2px solid $primary;
+    }
+}

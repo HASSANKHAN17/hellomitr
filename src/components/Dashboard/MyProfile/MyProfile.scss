@@ -1,0 +1,37 @@
+@import  "../../../App.scss";
+
+
+.dashboard-container{
+    margin: 2% 5%;
+}
+
+.section2{
+    margin: 1% 0;
+    background-color: white;
+    div{
+        padding:2%;
+        border-radius: 5px;
+        margin: 2% 0;
+        .key{
+            color: #a1a1a1;
+        }
+        .value{
+
+        }
+    }
+}
+.section1{
+    .cont{
+        background-color: white;
+        border-radius: 5px;
+        padding:2%;
+        h3{
+            color: $primary;
+        }
+        p{
+            //color: #a1a1a1;
+            font-weight: bold;
+
+        }
+    }
+}

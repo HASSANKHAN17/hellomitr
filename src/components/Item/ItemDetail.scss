@@ -1,0 +1,247 @@
+@import  "../../App.scss";
+
+.carousalbtncont{
+    margin: 0 1%;
+    .carousalbtn{
+        color: $primary;
+        padding:10px;
+        border-radius: 50%;
+        border: none;
+        background-color: #a1a1a11c;
+    }
+    .carousalbtn:hover{
+        background-color: #fe5f0328;
+    }
+    .carousalbtn:focus{
+        outline: none;
+    }
+}
+
+
+.itemdetail-container{
+    background-color: white;
+}
+.itemdetail{
+    background-color: white;
+    padding:2% 0;
+    .imagediv{
+        text-align: center;
+        .mainimg{
+            width: 30vw;
+        }
+        .imagerow{
+            .subimg{
+                border:1px solid #cccf;
+                border-radius: 5px;
+                padding:2%;
+                width: 5vw;
+                margin: 1%;
+            }
+            .subimg:hover{
+                cursor: pointer;
+            }
+
+        }
+    }
+
+}
+.productdetail{
+    .productname{
+        font-size: 1.7em;
+    }
+    .variationdiv{
+        .variation{
+            border: 1px solid #cccf;
+            border-radius: 10px;
+            padding-top: 2%;
+            img{
+                width: 6vw;
+            }
+            p{
+                background-color: #a1a1a1;
+                color: white;
+                padding: 2%;
+                text-align: center;
+            }
+            
+        }
+    }
+    .cashenamelogo{
+        margin-left: 5px;
+        width: 20vh !important;
+    }
+    h1{
+        font-family: $secondary-font;
+        font-weight: 400;
+    }
+    .ratingdiv{
+        font-size: 1.1em;
+        background-color: green;
+        border-radius: 2px;
+        color: white;
+        padding:.5% 1%;
+    }
+    .ratingreview{
+        margin-left: 2%;
+        font-size: 1.1em;
+    }
+    .availableoffers{
+        margin-top: 5%;
+        margin-bottom: 1%;
+        img{
+            width: 1.5vw;
+        }
+        p{
+            margin: 1% !important;
+        }
+    }
+    .pricerow{
+        padding-top: 2%;
+        .price{
+            font-size: 2em;
+            font-weight: bold;
+            color: $primary;
+        }
+        .mrp{
+            text-decoration: line-through;
+            margin: 0 1%;
+        }
+        .poff{
+            background-color: black;
+            color: white;
+            padding:1%;
+            border-radius: 5px;
+        }
+    }
+    
+    .count{
+        margin: 0 2%;
+        h2{
+            font-size: 1.5em;
+        }
+    }
+}
+
+
+.buynowpaylater{
+    margin-left: 5%;
+    height: 100%;
+    width: 100%;
+    padding: 2% 3% !important;
+    font-size: 1.1em;
+    background-color: $secondary;
+    padding-left: 2%;
+    img{
+        width: 1.2vw;
+    }
+    .heading{
+        font-weight: bold;
+    }
+}
+
+
+
+
+
+
+.descriptionreviewtab{
+    margin: 1% 5%;
+    .specificationdiv{
+        margin-right: 10%;
+    }
+    .attributes{
+        margin-right: 10%;
+        .row{
+            .key{
+                padding: 1%;
+                font-weight: bold;
+                background-color: #a1a1a11c;
+            }
+            .value{
+            }
+        }
+    }
+}
+
+.review-container{
+    .row{
+        .avatar{
+        }
+        .detailcontainer{
+            margin-left: 1%;
+            .name{
+                font-size: 1.2em;
+                font-weight: bold;
+            }   
+            .rating{
+                font-weight: bold;
+                margin: 0 10px;
+            }
+            .timeline{
+                color: #a1a1a1;
+            }
+        }
+    }
+    .review{
+        width: 30%;
+        margin: 1% 0;
+    }
+}
+
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+    .productname{
+        padding: 5% 0;
+    }
+    .itemdetail{
+        padding:2% 0;
+        .imagediv{
+            .mainimg{
+                width: 100%;
+            }
+            .imagerow{
+                .subimg{
+                    border:1px solid #cccf;
+                    border-radius: 5px;
+                    padding:2%;
+                    width: 20vw;
+                    margin: 1%;
+                }
+                .subimg:hover{
+                    cursor: pointer;
+                }
+    
+            }
+        }
+    
+    }
+    .buynowpaylater{
+        margin: 7%;
+        height: 100%;
+        img{
+            width: 5vw;
+        }
+        
+    }
+    .descriptionreviewtab{
+      
+        .attributes{
+            .row{
+                .key{
+                    padding: 2%;
+                }
+                .value{
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,16 @@
+@import  "../../App.scss";
+
+.success-container{
+    text-align: center;
+    padding: 4%;
+    .row{
+        img{
+            width: 20%;
+            border-radius: 10px;
+        }
+    }
+    .checked{
+        width: 20%;
+        margin: 5% 0;
+    }
+}

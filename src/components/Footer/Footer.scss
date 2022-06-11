@@ -1,0 +1,73 @@
+@import  "../../App.scss";
+
+.footer{
+    padding:3% 1%;
+    background: black;
+    color: white;
+    
+    .logo{
+        width: 15vw;
+    }
+    p{
+        color: grey;
+    }
+    .subtitle{
+        color: grey;
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+    .startupindiadiv{
+        padding:3% 0;
+        border-top: 1px solid blue;
+        border-bottom: 1px solid blue;
+        .startupindia{
+            margin-left: 5%;
+        }
+      
+    }
+    .footerplay{
+        width: 22vw !important;
+        margin-top: 10%;
+    }
+
+    .apps{
+        .googleplay{
+            .icon{
+                font-size: 1.5em;
+            }    
+            .appname{
+                font-size: 1.5em;
+                color: white;
+            }
+        }
+    }
+    h2{
+        font-weight: 500;
+    }
+    .link{
+        color: grey !important;
+    }
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+    .footer{
+        img{
+            width: 28vw;
+        }
+        .subtitle{
+            margin-top: 10%;
+        }
+      div{
+          margin-top: 8%;
+      }
+    }
+}
+

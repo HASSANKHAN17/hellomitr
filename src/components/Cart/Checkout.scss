@@ -1,0 +1,79 @@
+@import  "../../App.scss";
+
+.checkout{
+    border-radius: 5px;
+}
+.paymentdetails{
+    background-color: white;
+    margin: 2%;
+    width: 100%;
+    padding:2% 5%;
+    img{
+        width: 10vw;
+        margin-bottom: 2%;
+    }
+    .pg{
+        padding:2%;
+        margin: 3% 0;
+        background-color: rgb(245, 245, 245);
+    }
+    .pg:hover{
+        background-color:#ff5e003b ;
+        color: black;
+        transform: scale(1.03);
+        transition: .2s;
+        cursor: pointer;
+        border: 1px solid $primary;
+        border-radius: 5px;
+    }
+    .active{
+        background-color:#ff5e003b ;
+        color: black;
+        border: 1px solid $primary;
+        border-radius: 5px;
+        transform: scale(1.03);
+    }
+    .btn{
+        margin: 5% 0;
+    }
+}
+
+.col-12{
+    height: 100%;
+    margin: 2%;
+
+    .totaldiv{
+    padding:5%;
+
+        background: white;
+        border-radius: 5px;
+        h5{
+            margin-bottom: 10%;
+        }
+        .total{
+            text-align: right;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    }
+    .img{
+        width: 30vw;
+    }
+    .row{
+        margin: 5% 1%;
+        background: white;
+        padding:2%;
+    }
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+   
+}

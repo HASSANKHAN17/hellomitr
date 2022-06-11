@@ -1,0 +1,95 @@
+@import  "../../App.scss";
+
+.authcontainer{
+    background-color: white;
+    text-align: center;
+    width: 30%;
+    margin: auto;
+    padding-top: 3%;
+    margin-top: 3%;
+    border-radius: 10px;
+    form{
+        padding:3% 15%;
+        .textfield{
+            margin:5% 0;
+        }
+        .btn{
+            width: 100%;
+            margin:5% 0;
+        }
+    }
+    .alreadyuser{
+        padding: 3%;
+        background-color: rgb(243, 243, 243);
+        span{
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        span:hover{
+            cursor: pointer;
+        }
+    }
+}
+
+.otp{
+    width: 45%;
+    text-align: center;
+  
+    .otpcontainer{
+        width: 100%;
+        margin: 8% 2%;
+        padding: 0 10%;
+        justify-content: space-around;
+    }
+    .otpinput{
+        width: 6vh !important;
+        height: 7vh !important;
+        margin: 0 10px;
+        font-size: 1.5em;
+        // width: 50% !important;
+        // height: 120%;
+        // font-size: 2rem;
+         border-radius: 5px;
+         border: 2px solid #cccf;
+      }
+   
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+    .authcontainer{
+        width: 80%;
+        }
+    
+        .otp{
+            margin-top: 15%;
+            width: 100%;
+            text-align: center;
+          
+            .otpcontainer{
+                width: 100%;
+                margin: 8% 2%;
+                padding: 0 10%;
+                justify-content: space-around;
+            }
+            .otpinput{
+                width: 5vh !important;
+                height: 5vh !important;
+                margin: 0 10px;
+                font-size: 1.5em;
+                // width: 50% !important;
+                // height: 120%;
+                // font-size: 2rem;
+                 border-radius: 5px;
+                 border: 2px solid #cccf;
+              }
+           
+        }
+}

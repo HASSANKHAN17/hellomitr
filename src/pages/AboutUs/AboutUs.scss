@@ -1,0 +1,84 @@
+@import "../../App.scss";
+
+.aboutus{
+    .center-img{
+        margin: 3% auto;
+    }
+ h1{
+     text-align: center;
+     font-size: 2.5em;
+ }
+ .p1{
+     margin: 1% 20%;
+     text-align: center;
+     font-size: 1.3em;
+ }
+ .row-1{
+     text-align: center;
+     margin: 2% 10%;
+     .col-12{
+         padding:2%;
+     }
+ }
+
+.au-section-2{
+    h1{
+        margin:2% 30%;
+    }
+    .imgcontainer{
+        margin: 2% 5%;
+        .col-12{
+            margin: 3% 0;
+        }
+        img{
+       width: 80%; 
+       }
+
+    }
+}
+
+.last-section{
+    text-align: center;
+    padding: 5% 20%;
+    blockquote{
+        margin-top: 5%;
+        font-size: 1.3em;
+        line-height: 2;
+    }
+}
+
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+.aboutus{
+    h1{
+        font-size: 2em;
+    }
+    .p1{
+        font-size: 1em;
+        margin: 1% 8%;
+    }
+    img{
+        width: 100vw;
+    }
+    .au-section-2{
+        h1{
+            margin: 5% 10%;
+        }
+    }
+    .last-section{
+        text-align: center;
+        padding: 8% 10%;
+    }
+    
+}
+}
+

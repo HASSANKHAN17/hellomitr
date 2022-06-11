@@ -1,0 +1,96 @@
+@import  "../../App.scss";
+.item{
+    background-color: white !important;
+    margin: 8% 2%;
+    border-radius: 5px;
+    height: 90%;
+    padding-top: 5%;
+    padding-bottom: 3%;
+    
+    
+   .discount{
+       background: #fe5f0325;
+       font-weight: bold;
+       border: 1px solid $primary;
+       padding: 2%;
+       margin: 5%;
+       border-radius: 3px;
+
+   }
+   .info{
+       padding:4% 5%;
+       .heading{
+           margin-top: 10%;
+           font-weight: 500;
+           
+           margin-bottom: 0;
+           font-size: 1em;
+       }
+       .rating{
+           margin: 3% 0;
+           p{
+               color: $primary;
+               color: rgb(0, 82, 0);
+               font-weight: bold;
+               
+           }
+       }
+       .mrp{
+           text-decoration: line-through;
+           color: #a1a1a1;
+       }
+       .total{
+           font-weight: bold;
+           font-size: 1.5em;
+           color: $primary;
+        //    background: -webkit-linear-gradient($primary, rgb(194, 87, 0));
+        //    -webkit-background-clip: text;
+        //    -webkit-text-fill-color: transparent;
+       }
+       .off{
+           color: green;
+           font-weight: bold;
+           padding:2%;
+       }
+    }
+    .cartcountdiv{
+        margin: 2%;
+        .count{
+            font-size: 1.2em;
+        }
+        .iconbuttonadd{
+            background-color:#fe5f030a ;
+        }
+   }
+   img{
+       width: 100%;
+       display: block;
+       margin: auto;
+   }
+ 
+   
+   
+}
+.item:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: .2s;
+    background: #fe5f0307;
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+   .item{
+       padding-bottom: 10%;
+       
+   }
+}
+
+

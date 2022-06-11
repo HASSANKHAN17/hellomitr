@@ -1,0 +1,69 @@
+@import  "../../App.scss";
+
+.subheader{
+    background-color: white;
+    padding:1% 0%;
+    .itemcontainer{
+        text-align: center;
+        color: black !important;
+        img{
+            width: 80%;
+        }
+        h5{
+            text-align: center;
+            font-size: 1em;
+        }
+    }
+}
+
+
+@media (max-width: 992px) {
+    .subheader{
+        background-color: white;
+        padding:1% 3%;
+        .itemcontainer{
+            text-align: center;
+            margin: 2% 0 !important;
+            img{
+            }
+            h5{
+                text-align: center;
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    .subheader{
+        background-color: white;
+        padding:1% 3%;
+        .itemcontainer{
+            text-align: center;
+            margin: 2% 0 !important;
+            img{
+                
+            }
+            h5{
+                text-align: center;
+            }
+        }
+    }
+
+}
+@media (max-width: 576px) {
+    .subheader{
+        display: none;
+        background-color: white;
+        padding:1% 3%;
+        .itemcontainer{
+            text-align: center;
+            margin: 2% 0 !important;
+            img{
+                
+            }
+            h5{
+                text-align: center;
+            }
+        }
+    }
+}
+
