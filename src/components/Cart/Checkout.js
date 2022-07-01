@@ -118,7 +118,7 @@ function Checkout(props) {
 
 
     //test 
-    axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`http://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
+    axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
     .then(res=>{
       window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
     })
