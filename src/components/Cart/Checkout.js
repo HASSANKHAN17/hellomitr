@@ -109,21 +109,21 @@ function Checkout(props) {
     // test  axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:10000,tenure:3,mobilenumber:"9665276786",authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:"0142334456",merchantname:"Amazon",returnPageURL:"https://localhost:3000/orders"})
     //https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction
     //https://uat-paymentgateway.cashe.co.in 2MLFiopx+givx5mPf8CchQ==  https://paymentgateway.cashe.co.in JQ5aLPRjELwWkrG7Vfpczw==
-    // axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`https://hellomitr.com/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
-    // .then(res=>{
-    //   window.location.href = `https://secure.payments.cashe.co.in/Login?transaction=${res.data.entity}`;
-    // })
-    // .catch(err=>{
-    // })
-
-
-    //test 
-    axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
+    axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`https://hellomitr.com/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
     .then(res=>{
-      window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
+      window.location.href = `https://secure.payments.cashe.co.in/Login?transaction=${res.data.entity}`;
     })
     .catch(err=>{
     })
+
+
+    //test 
+    // axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
+    // .then(res=>{
+    //   window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
+    // })
+    // .catch(err=>{
+    // })
 
   }
 
