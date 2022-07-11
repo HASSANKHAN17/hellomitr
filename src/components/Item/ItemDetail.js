@@ -219,7 +219,7 @@ function ItemDetail(props) {
             <p><img src={icici} alt="hdfc" /> ICICI Bank Debit Card EMI</p>
             <p><img src={kotak} alt="hdfc" className="mr-2" /> Kotak Bank Debit Card EMI</p>
             <p><img src={instacred} alt="hdfc" className="mr-2" /> Instacred Cardless EMI</p>
-            <Button startIcon={<AddCardIcon />} fullWidth variant="contained">Get Bajaj Insta EMI Card</Button>
+            <Button onClick={()=>window.open("https://www.bajajfinserv.in/insta-emi-network-card-apply-online-no-cost-emi?utm_source=Web&utm_medium=SVOOL&utm_campaign=ECOM&Params=kUVJ8O7X4P4NizL4Dk2HacUrdAoIF2Mvn/LLvE1xj6MGD2+sUD9k1Xfkij5/lwoyjyPXmkr4tgc48NSPyr1seijzniCaVb7vRsX1ccQnAliUsT74v4kcdkDNplKBkw2fPLHbH6jvbbkQ4S+M3PGckA4mXqQUYnX7yrZEdMI35XcaFvPVu3XyDRT/91axmmsWHUneY84UPNAqGYCTx/TVtpbaX6LbxXeB6XCLIgvXRmk=", "_blank")} startIcon={<AddCardIcon />} fullWidth variant="contained">Get Bajaj Insta EMI Card</Button>
           </div>
 
 
