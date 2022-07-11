@@ -18,6 +18,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import img1 from '../Images/carousel1banner/slider1.jpeg'
 import img2 from '../Images/carousel1banner/slider2.jpeg'
 import img3 from '../Images/carousel1banner/slider3.jpeg'
+import imgemi from '../Images/carousel1banner/Charger  Case  Earphone  Repair.png'
 import img4 from '../Images/carousel1banner/img4.png'
 import img5 from '../Images/carousel1banner/slider5.jpeg'
 import img6 from '../Images/carousel1banner/slider6.1.png'
@@ -150,7 +151,7 @@ function Home(props) {
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={22}
-                totalSlides={6}
+                totalSlides={7}
                 isPlaying
                 >
                 <Slider>
@@ -160,7 +161,7 @@ function Home(props) {
                 <Slide index={3}><img className="carousel1" src={img7} alt="img2" /></Slide>
                 <Slide index={4}><img className="carousel1" src={img4} alt="img4" /></Slide>
                 <Slide index={5}><img className="carousel1" src={img5} alt="img5" /></Slide>
-                
+                <Slide index={6}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
                 </Slider>
             </CarouselProvider>
 

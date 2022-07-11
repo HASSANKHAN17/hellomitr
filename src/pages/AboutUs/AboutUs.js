@@ -22,8 +22,8 @@ function AboutUs() {
             Within our platform, millions of people around India connect, both online and offline, to make, sell and buy unique goods. We also offer a wide range of Seller Services and tools that help creative entrepreneurs start, manage and scale their businesses.
             </p>
 
-            <div className="row row-1">
-                <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+            <div className="row row-1 justify-content-center ">
+                <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                     <h3>
                     Start-up Certified 2020-
                     Indian Marketplace
@@ -32,7 +32,7 @@ function AboutUs() {
                     Our mission is to re-imagine commerce in ways that build a more fulfilling and lasting world, and we’re committed to using the power of business to strengthen communities and empower people.
                     </p>
                 </div>
-                <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                 <h3>
                 ISO Marked certified 2021
                 High Standard Maintain for Support
@@ -41,7 +41,7 @@ function AboutUs() {
                     We maintain highest standard & quality supportive way for our customer support
                     </p>
                 </div>
-                <div className="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+                <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                 <h3>
                 Instant Delivery Ninja Team
                 to deliver products to our customers on high standards

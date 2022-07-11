@@ -91,29 +91,33 @@ Indian courts at Bangalore (URBAN), (Karnataka) India.</li>
 <li className="l2">
 <table border="1" width="100%" cellspacing="0" cellpadding="1">
 <tbody>
-<tr>
-<th scope="col">For</th>
-<th scope="col">Conditions</th>
+<tr >
+<th style={{padding:'5px'}} scope="col">For</th>
+<th style={{padding:'5px'}} scope="col">Conditions</th>
 </tr>
-<tr>
-<th scope="row">Correctness</th>
-<td>IMEI/ name/ image/ brand/ serial number/ article number/ bar code should match and MRP tag should not be removed and clearly visible.</td>
+<tr >
+<th style={{padding:'5px'}} scope="row">Correctness</th>
+<td style={{padding:'5px'}}>IMEI/ name/ image/ brand/ serial number/ article number/ bar code should match and MRP tag should not be removed and clearly visible.</td>
 </tr>
-<tr>
-<th scope="row">Completeness</th>
-<td>All in-the-box accessories (like remote control, starter kits, instruction manuals, chargers, headphones, etc.), freebies, warranty/guarantee cards and combos (if any) should be present.</td>
+<tr >
+<th style={{padding:'5px'}} scope="row">Completeness</th>
+<td style={{padding:'5px'}}>All in-the-box accessories (like remote control, starter kits, instruction manuals, chargers, headphones, etc.), freebies, warranty/guarantee cards and combos (if any) should be present.</td>
 </tr>
-<tr>
-<th scope="row">Non Usage</th>
-<td>The product should be unused, unwashed, unsoiled, without any stains and with non-tampered quality check seals/ warranty seals (wherever applicable).</td>
+<tr >
+<th style={{padding:'5px'}} scope="row">Non Usage</th>
+<td style={{padding:'5px'}}>The product should be unused, unwashed, unsoiled, without any stains and with non-tampered quality check seals/ warranty seals (wherever applicable).</td>
 </tr>
-<tr>
-<th scope="row">Non-damage (Product)</th>
-<td>The product (including SIM trays/ charging port/ headphone port, back-panel etc.) should be undamaged and without any scratches, dents, tears or holes.</td>
+<tr >
+<th style={{padding:'5px'}} scope="row">Non-damage (Product)</th>
+<td style={{padding:'5px'}}>The product (including SIM trays/ charging port/ headphone port, back-panel etc.) should be undamaged and without any scratches, dents, tears or holes.</td>
 </tr>
-<tr>
-<th scope="row">Non-damage (Packaging)</th>
-<td>Product’s original packaging/ brand box should be undamaged.</td>
+<tr >
+<th style={{padding:'5px'}} scope="row">Non-damage (Packaging)</th>
+<td style={{padding:'5px'}}>Product’s original packaging/ brand box should be undamaged.</td>
+</tr>
+<tr >
+<th style={{padding:'5px'}} scope="row">Cancellation Duration</th>
+<td style={{padding:'5px'}}>24 Hrs</td>
 </tr>
 </tbody>
 </table>

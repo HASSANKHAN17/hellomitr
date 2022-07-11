@@ -25,6 +25,7 @@ import bajajfinance from './bajajfinance.jpeg'
 import zestmoney from './zest.jpeg'
 import hdfc from './hdfc.jpeg'
 import icici from './icici.jpeg'
+import AddCardIcon from '@mui/icons-material/AddCard';
 import kotak from './KOTAKBANK.NS.png'
 import {BrowserView, MobileView} from 'react-device-detect';
 import instacred from './instacred.jpeg'
@@ -218,6 +219,7 @@ function ItemDetail(props) {
             <p><img src={icici} alt="hdfc" /> ICICI Bank Debit Card EMI</p>
             <p><img src={kotak} alt="hdfc" className="mr-2" /> Kotak Bank Debit Card EMI</p>
             <p><img src={instacred} alt="hdfc" className="mr-2" /> Instacred Cardless EMI</p>
+            <Button startIcon={<AddCardIcon />} fullWidth variant="contained">Get Bajaj Insta EMI Card</Button>
           </div>
 
 
