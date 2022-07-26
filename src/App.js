@@ -27,6 +27,7 @@ import FrequentlyAsked from './pages/FAQ/FrequentlyAsked';
 import ContactUs from './pages/ContactUs/ContactUs';
 import Corporate from './pages/CorporateandBP/Corporate';
 import MaintenanceMode from './MaintenanceMode';
+import TestPayment from './components/TestPayment';
 function App() {
   return (
     <Switch>
@@ -44,6 +45,7 @@ function App() {
       <Route path="/singletransaction" component={TransactionSingle} />
       <Route path="/orderdetail" component={OrderDetail} />
       <Route path="/otp" component={Otp} />
+      <Route path="/testpayment" component={TestPayment} />
 
 
       {/* static pages  */}

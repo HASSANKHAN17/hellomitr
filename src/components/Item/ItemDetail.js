@@ -204,7 +204,16 @@ function ItemDetail(props) {
             </div>
             }
             <p className="mt-3">Sold by: <b>Hellomitr outlook</b></p>
+            <div className="snap_emi_txt">
+s          </div>
+       <span className="snapmint_lowest_emi_value hidden" 
+       data-snapmint-price="2500" 
+       data-snapmint-subvention="false" 
+       data-snapmint-skuid="productsku" 
+       data-snapmint-merchant_id="1867" 
+       data-snapmint-page="product"></span>
         </div>
+
 
 
 

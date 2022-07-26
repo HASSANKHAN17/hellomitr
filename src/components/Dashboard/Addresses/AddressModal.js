@@ -79,9 +79,10 @@ function AddressModal(props) {
               };
         }
         setLoading(true)
-          
+          console.log("data is",data)
           WooCommerce.putAsync(`customers/${props.user.id}`, data)
             .then((response) => {
+              console.log("ress",JSON.parse(response.toJSON().body))
               props.setUser(JSON.parse(response.toJSON().body))
               props.setOpen(false)
               setLoading(false)

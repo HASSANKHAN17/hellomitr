@@ -16,7 +16,11 @@ import {emptySingleItem} from '../redux/SingleItem/singleItemActions'
 import {storeFinalItem} from '../redux/FinalItem/finalItemAction'
 import AddressModal from '../Dashboard/Addresses/AddressModal'
 import {Alert} from '@mui/material'
-
+function sha512(str) {
+  return crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str)).then(buf => {
+    return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
+  });
+}
 //uuidv4(); // ⇨ '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 function Checkout(props) {
   const [selected,setSelected]=React.useState(2)
@@ -27,6 +31,8 @@ function Checkout(props) {
   const [open,setOpen]=React.useState(false)
   const [type,setType]=React.useState("shipping")
   const [error,setError]=React.useState("")
+  const [shaString,setShaString]=React.useState("")
+  const [uid,setUid]=React.useState("")
   var WooCommerce = new WooCommerceAPI({
     url: 'https://api.hellomitr.com/',
     consumerKey: 'ck_d7bd31411532bc4fbfa97da6d587492acb1ed00c',
@@ -63,6 +69,7 @@ function Checkout(props) {
       rzp1.open();
   };
   React.useEffect(() => {
+    setUid(uuidv4())
     if(props.user===null){
       props.history.push("/login")
     }else{
@@ -95,12 +102,6 @@ function Checkout(props) {
         props.emptySingleItem()
       }
       
-      // axios.get(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/fetchCASHePlans
-      // /9665276786/10000`,{headers:{Authorization:'2MLFiopx+givx5mPf8CchQ=='}})
-      // .then(res=>{
-      // })
-      // .catch(err=>{
-      // })
     }
      
   }, []);
@@ -129,6 +130,83 @@ function Checkout(props) {
 
  //cmm
 
+ const renderSnapMint = ()=>{
+  return  <div>
+      <form id="snapmint" name="snapmint" method="post" 
+    action="https://sandboxapi.snapmint.com/v3/public/online_checkout">
+    <input type="hidden" name="token" value="UOYY0R_n"/>
+    <input type="hidden" name="merchant_confirmation_url" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=${uid}`}/>
+    <input type="hidden" name="merchant_failure_url" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=''`}/>
+    <input type="hidden" name="checksum_hash" value={shaString.toString()}/>
+    <input type="hidden" name="order_id" value={uid.toString()}/>
+    <input type="hidden" name="order_value" value={finalTotal().toString()}/>
+    <input type="hidden" name="first_name" value={address===1?props.user.billing.first_name.toString():props.user.shipping.first_name.toString()}/>
+    <input type="hidden" name="last_name" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()}/>
+    <input type="hidden" name="full_name" value={address===1?(props.user.billing.first_name.toString()+' '+props.user.billing.last_name.toString()):(props.user.shipping.first_name.toString()+' '+props.user.shipping.last_name.toString())}/>
+    <input type="hidden" name="email" value={props.user.email.toString()}/>
+    <input type="hidden" name="mobile" value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()}/>
+    <input type="hidden" name="shipping_address_line1" value={address===1?props.user.billing.address_1.toString():props.user.shipping.address_1.toString()}/>
+    <input type="hidden" name="shipping_zip" value={address===1?props.user.billing.postcode.toString():props.user.shipping.postcode.toString()}/>
+    <input type="hidden" name="billing_address_line1" value={address===1?props.user.billing.address_1.toString():props.user.shipping.address_1.toString()}/>
+    <input type="hidden" name="billing_zip" value={address===1?props.user.billing.postcode.toString():props.user.shipping.postcode.toString()}/>
+    {
+      Object.keys(props.singleItem).length>0?
+      (<>
+      <input type="hidden" name="products[][sku]" value={`${props.singleItem.sku}`}/>
+    <input type="hidden" name="products[][name]" value={`${props.singleItem.name}`}/>
+    <input type="hidden" name="products[][quantity]" value="1"/>
+    <input type="hidden" name="products[][unit_price]" value={`${props.singleItem.sale_price}`}/>
+      </>):
+      (<>
+      {
+        props.cart.length>0&&(props.cart.map(item=><>
+        <input type="hidden" name="products[][sku]" value={item.sku}/>
+    <input type="hidden" name="products[][name]" value={item.name}/>
+    <input type="hidden" name="products[][quantity]" value={item.count}/>
+    <input type="hidden" name="products[][unit_price]" value={item.sale_price}/>
+        </>))
+      }
+      </>)
+    }
+    {/* <input type="hidden" name="products[][sku]" value="454"/>
+    <input type="hidden" name="products[][name]" value="Air Pods 2"/>
+    <input type="hidden" name="products[][quantity]" value="1"/>
+    <input type="hidden" name="products[][unit_price]" value="1500"/> */}
+    {/* <input type="submit" value="Make Payment"/> */}
+    <Button type="submit" className="btn" variant="contained" fullWidth>Pay now</Button>
+    </form>
+    </div>
+ }
+
+
+
+const renderPayu = ()=>{
+<div>
+<form action='https://test.payu.in/_payment' method='post'>
+<input type="hidden" name="key" value="Sog1Og" />
+<input type="hidden" name="txnid" value={uid.toString()} />
+<input type="hidden" name="productinfo" value="Hellomitr Product" />
+<input type="hidden" name="amount" value={finalTotal().toString()} />
+<input type="hidden" name="email" value={props.user.email.toString()} />
+<input type="hidden" name="firstname" value={address===1?props.user.billing.first_name.toString():props.user.shipping.first_name.toString()} />
+<input type="hidden" name="lastname" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()} />
+<input type="hidden" name="surl" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=${uid}`} />
+<input type="hidden" name="furl" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=''`} />
+<input type="hidden" name="phone" value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()} />
+<input type="hidden" name="hash" value={sha512} />
+<Button type="submit" className="btn" variant="contained" fullWidth>Pay now</Button>
+</form>
+</div>
+}
+
+
+
+
+
+
+
+
+ console.log(shaString)
   return (
     props.user!==null&&<div>
         <Header />
@@ -211,9 +289,40 @@ function Checkout(props) {
                 <p>Credit Card / Debit Card / Net Banking / UPI</p>
               </div>
 
+              <div onClick={()=>{
+                const shaVal = `${`UOYY0R_n`}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${`cQ_kvgB0`}`
+                console.log(shaVal)
+                sha512(shaVal)
+                .then(res=>{
+                  setShaString(res)
+                  setSelected(1)
+                })
+                }} className={selected===1?"col-5 pg active":"col-5 pg"}>
+              <img src={Razorpaylogo} alt="razorpya" />
+                <p>No Cost EMI on snapmint</p>
+              </div>
+
+              <div onClick={()=>{
+                const shaVal = `Sog1Og|${uid}|${finalTotal()}|HellomitrProduct|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|||||||||||001YXAlCyx3ssF7AtxluEA7g9QnnaHmi`
+                console.log(shaVal)
+                sha512(shaVal)
+                .then(res=>{
+                  setShaString(res)
+                  setSelected(0)
+                })
+                }} className={selected===0?"col-5 pg active":"col-5 pg"}>
+              <img src={Razorpaylogo} alt="razorpya" />
+                <p>No Cost EMI on payubiz</p>
+              </div>
+
             </div>
             {error.length>0&&<Alert className="alert" severity="error">{error}</Alert>}
-            <Button disabled={error.length>0?true:false} onClick={()=>selected===2?openPayModal():openCasheModal()} className="btn" variant="contained" fullWidth>Pay now</Button>
+            {
+              selected===1?
+              renderSnapMint():
+              (selected===0?renderPayu():<Button disabled={error.length>0?true:false} onClick={()=>selected===2?openPayModal():openCasheModal()} className="btn" variant="contained" fullWidth>Pay now</Button>)
+            }
+            
             </div>
 
 
