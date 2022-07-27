@@ -33,6 +33,7 @@ function Checkout(props) {
   const [error,setError]=React.useState("")
   const [shaString,setShaString]=React.useState("")
   const [uid,setUid]=React.useState("")
+  console.log("uid is",uid)
   var WooCommerce = new WooCommerceAPI({
     url: 'https://api.hellomitr.com/',
     consumerKey: 'ck_d7bd31411532bc4fbfa97da6d587492acb1ed00c',
@@ -107,7 +108,7 @@ function Checkout(props) {
   }, []);
   const openCasheModal = ()=>{
     //;live axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`http://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
-    // test  axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:10000,tenure:3,mobilenumber:"9665276786",authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:"0142334456",merchantname:"Amazon",returnPageURL:"https://localhost:3000/orders"})
+    // test  axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:10000,tenure:3,mobilenumber:"9665276786",authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:"0142334456",merchantname:"Amazon",returnPageURL:"http://localhost:3000/orders"})
     //https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction
     //https://uat-paymentgateway.cashe.co.in 2MLFiopx+givx5mPf8CchQ==  https://paymentgateway.cashe.co.in JQ5aLPRjELwWkrG7Vfpczw==
     axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`https://hellomitr.com/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
@@ -132,24 +133,33 @@ function Checkout(props) {
 
  const renderSnapMint = ()=>{
   return  <div>
-      <form id="snapmint" name="snapmint" method="post" 
-    action="https://sandboxapi.snapmint.com/v3/public/online_checkout">
-    <input type="hidden" name="token" value="UOYY0R_n"/>
-    <input type="hidden" name="merchant_confirmation_url" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=${uid}`}/>
-    <input type="hidden" name="merchant_failure_url" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=''`}/>
-    <input type="hidden" name="checksum_hash" value={shaString.toString()}/>
-    <input type="hidden" name="order_id" value={uid.toString()}/>
-    <input type="hidden" name="order_value" value={finalTotal().toString()}/>
-    <input type="hidden" name="first_name" value={address===1?props.user.billing.first_name.toString():props.user.shipping.first_name.toString()}/>
-    <input type="hidden" name="last_name" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()}/>
-    <input type="hidden" name="full_name" value={address===1?(props.user.billing.first_name.toString()+' '+props.user.billing.last_name.toString()):(props.user.shipping.first_name.toString()+' '+props.user.shipping.last_name.toString())}/>
-    <input type="hidden" name="email" value={props.user.email.toString()}/>
-    <input type="hidden" name="mobile" value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()}/>
-    <input type="hidden" name="shipping_address_line1" value={address===1?props.user.billing.address_1.toString():props.user.shipping.address_1.toString()}/>
-    <input type="hidden" name="shipping_zip" value={address===1?props.user.billing.postcode.toString():props.user.shipping.postcode.toString()}/>
-    <input type="hidden" name="billing_address_line1" value={address===1?props.user.billing.address_1.toString():props.user.shipping.address_1.toString()}/>
-    <input type="hidden" name="billing_zip" value={address===1?props.user.billing.postcode.toString():props.user.shipping.postcode.toString()}/>
-    {
+     <form id="snapmint" name="snapmint" method="post" action={`${process.env.REACT_APP_SNAPMINT}`}>
+  <input type="hidden" name="merchant_key" value="2ZEmnyH9" />
+  <input type="hidden" name="order_id" value={uid} />
+  <input type="hidden" name="order_value" value={finalTotal().toString()} />
+  <input type="hidden" name="merchant_confirmation_url" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=snapmint&transactionId=${uid}`}/>
+  <input type="hidden" name="merchant_failure_url" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=payubiz&transactionId='null'`}/>
+  <input type="hidden" name="first_name" value={address===1?props.user.billing.first_name.toString():props.user.shipping.first_name.toString()}/>
+  <input type="hidden" name="middle_name" value="" />
+  <input type="hidden" name="last_name" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()}/>
+  <input type="hidden" name="full_name" value={address===1?(props.user.billing.first_name.toString()+' '+props.user.billing.last_name.toString()):(props.user.shipping.first_name.toString()+' '+props.user.shipping.last_name.toString())}/>
+  <input type="hidden" name="email" value={props.user.email.toString()}/>
+  <input type="hidden" name="mobile" value={`7777788888`}/> 
+  {/* value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()} */}
+  <input type="hidden" name="shipping_fees" value="0.0000" />
+  <input type="hidden" name="discount_code" value="" />
+  <input type="hidden" name="udf1" value="UDF1" />
+  <input type="hidden" name="udf2" value="UDF2" />
+  <input type="hidden" name="udf3" value="UDF3" />
+  <input type="hidden" name="prev_transactions_count" value="0" />
+  <input type="hidden" name="total_transactions_count " value="0" />
+  <input type="hidden" name="avg_transaction_value " value="0" />
+  <input type="hidden" name="digital_mode_transactions_count" value="0" />
+  <input type="hidden" name="shipping_address_line1" value={address===1?props.user.billing.address_1.toString():props.user.shipping.address_1.toString()}/>
+  <input type="hidden" name="shipping_zip" value={address===1?props.user.billing.postcode.toString():props.user.shipping.postcode.toString()}/>
+  <input type="hidden" name="billing_address_line1" value={address===1?props.user.billing.address_1.toString():props.user.shipping.address_1.toString()}/>
+  <input type="hidden" name="billing_zip" value={address===1?props.user.billing.postcode.toString():props.user.shipping.postcode.toString()}/>
+  {
       Object.keys(props.singleItem).length>0?
       (<>
       <input type="hidden" name="products[][sku]" value={`${props.singleItem.sku}`}/>
@@ -168,32 +178,33 @@ function Checkout(props) {
       }
       </>)
     }
-    {/* <input type="hidden" name="products[][sku]" value="454"/>
-    <input type="hidden" name="products[][name]" value="Air Pods 2"/>
-    <input type="hidden" name="products[][quantity]" value="1"/>
-    <input type="hidden" name="products[][unit_price]" value="1500"/> */}
-    {/* <input type="submit" value="Make Payment"/> */}
-    <Button type="submit" className="btn" variant="contained" fullWidth>Pay now</Button>
-    </form>
+  <input type="hidden" name="products[][udf1]" value="UDF1" />
+  <input type="hidden" name="products[][udf2]" value="UDF2" />
+  <input type="hidden" name="products[][udf3]" value="UDF3" />
+  <input type="hidden" name="checksum_hash" value={shaString} />
+  <button className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root btn css-jio58p-MuiButtonBase-root-MuiButton-root" tabindex="0" type="submit">Pay now<span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button>
+</form>
+
+
     </div>
  }
 
 
 
 const renderPayu = ()=>{
-<div>
-<form action='https://test.payu.in/_payment' method='post'>
+return <div>
+<form action={`${process.env.REACT_APP_PAYU}`} method='post'>
 <input type="hidden" name="key" value="Sog1Og" />
 <input type="hidden" name="txnid" value={uid.toString()} />
-<input type="hidden" name="productinfo" value="Hellomitr Product" />
+<input type="hidden" name="productinfo" value="Hellomitr" />
 <input type="hidden" name="amount" value={finalTotal().toString()} />
 <input type="hidden" name="email" value={props.user.email.toString()} />
 <input type="hidden" name="firstname" value={address===1?props.user.billing.first_name.toString():props.user.shipping.first_name.toString()} />
 <input type="hidden" name="lastname" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()} />
-<input type="hidden" name="surl" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=${uid}`} />
-<input type="hidden" name="furl" value={`https://localhost:3000/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&transactionId=''`} />
+<input type="hidden" name="surl" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=payubiz&transactionId=${uid}`} />
+<input type="hidden" name="furl" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=payubiz&transactionId='null'`} />
 <input type="hidden" name="phone" value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()} />
-<input type="hidden" name="hash" value={sha512} />
+<input type="hidden" name="hash" value={shaString} />
 <Button type="submit" className="btn" variant="contained" fullWidth>Pay now</Button>
 </form>
 </div>
@@ -202,7 +213,15 @@ const renderPayu = ()=>{
 
 
 
-
+const renderButton = ()=>{
+  if(selected===0){
+    return renderPayu()
+  }else if(selected===1){
+    return renderSnapMint()
+  }else{
+    return <Button disabled={error.length>0?true:false} onClick={()=>selected===2?openPayModal():openCasheModal()} className="btn" variant="contained" fullWidth>Pay now</Button>
+  }
+}
 
 
 
@@ -290,7 +309,7 @@ const renderPayu = ()=>{
               </div>
 
               <div onClick={()=>{
-                const shaVal = `${`UOYY0R_n`}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${`cQ_kvgB0`}`
+                const shaVal = `${process.env.REACT_APP_SNAPMINT_MERCHANT_KEY}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${`${process.env.REACT_APP_SNAPMINT_TOKEN}`}`
                 console.log(shaVal)
                 sha512(shaVal)
                 .then(res=>{
@@ -303,7 +322,7 @@ const renderPayu = ()=>{
               </div>
 
               <div onClick={()=>{
-                const shaVal = `Sog1Og|${uid}|${finalTotal()}|HellomitrProduct|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|||||||||||001YXAlCyx3ssF7AtxluEA7g9QnnaHmi`
+                const shaVal = `${process.env.REACT_APP_PAYU_KEY}|${uid}|${finalTotal().toString()}|Hellomitr|${address===1?props.user.billing.first_name:props.user.shipping.first_name}|${props.user.email}|||||||||||${process.env.REACT_APP_PAYU_SALT}`
                 console.log(shaVal)
                 sha512(shaVal)
                 .then(res=>{
@@ -318,10 +337,13 @@ const renderPayu = ()=>{
             </div>
             {error.length>0&&<Alert className="alert" severity="error">{error}</Alert>}
             {
+              renderButton()
+            }
+            {/* {
               selected===1?
               renderSnapMint():
               (selected===0?renderPayu():<Button disabled={error.length>0?true:false} onClick={()=>selected===2?openPayModal():openCasheModal()} className="btn" variant="contained" fullWidth>Pay now</Button>)
-            }
+            } */}
             
             </div>
 
