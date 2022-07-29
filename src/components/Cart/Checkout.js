@@ -10,6 +10,8 @@ import safeandsecurep from './safeandsecurep.jpeg'
 import {connect} from 'react-redux'
 import Cashe from './CASHe Logo 2.png'
 import Razorpaylogo from './Razorpaay.png'
+import snapmintlogo from './snapmintlog.png'
+import Payuimg from './payuimg.png'
 import WooCommerceAPI from 'woocommerce-api'
 import { v4 as uuidv4 } from 'uuid';
 import {emptySingleItem} from '../redux/SingleItem/singleItemActions'
@@ -53,9 +55,10 @@ function Checkout(props) {
       name: 'Hellomitr',
       handler: function(response) {
           if(Object.keys(props.singleItem).length>0){
-            props.history.push(`/singletransaction?address=${address}?transactionId=${response.razorpay_payment_id}`,true)
+            
+            props.history.push(`/singletransaction?address=${address}&gateway=razorpay&transactionId=${response.razorpay_payment_id}`)
           }else{
-            props.history.push(`/transaction?address=${address}?transactionId=${response.razorpay_payment_id}`,true)
+            props.history.push(`/transaction?address=${address}&gateway=razorpay&transactionId=${response.razorpay_payment_id}`)
           }
           
       //comment added
@@ -111,21 +114,21 @@ function Checkout(props) {
     // test  axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:10000,tenure:3,mobilenumber:"9665276786",authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:"0142334456",merchantname:"Amazon",returnPageURL:"http://localhost:3000/orders"})
     //https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction
     //https://uat-paymentgateway.cashe.co.in 2MLFiopx+givx5mPf8CchQ==  https://paymentgateway.cashe.co.in JQ5aLPRjELwWkrG7Vfpczw==
-    axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`https://hellomitr.com/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
-    .then(res=>{
-      window.location.href = `https://secure.payments.cashe.co.in/Login?transaction=${res.data.entity}`;
-    })
-    .catch(err=>{
-    })
-
-
-    //test 
-    // axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}`})
+    // axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=cashe`})
     // .then(res=>{
-    //   window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
+    //   window.location.href = `https://secure.payments.cashe.co.in/Login?transaction=${res.data.entity}`;
     // })
     // .catch(err=>{
     // })
+
+
+    //test 
+    axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=cashe`})
+    .then(res=>{
+      window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
+    })
+    .catch(err=>{
+    })
 
   }
 
@@ -317,8 +320,8 @@ const renderButton = ()=>{
                   setSelected(1)
                 })
                 }} className={selected===1?"col-5 pg active":"col-5 pg"}>
-              <img src={Razorpaylogo} alt="razorpya" />
-                <p>No Cost EMI on snapmint</p>
+              <img src={snapmintlogo} alt="snapmintlogo" />
+              <p>Credit Card / Debit Card / Net Banking / UPI</p>
               </div>
 
               <div onClick={()=>{
@@ -330,8 +333,8 @@ const renderButton = ()=>{
                   setSelected(0)
                 })
                 }} className={selected===0?"col-5 pg active":"col-5 pg"}>
-              <img src={Razorpaylogo} alt="razorpya" />
-                <p>No Cost EMI on payubiz</p>
+              <img src={Payuimg} alt="Payuimg" />
+              <p>Credit Card / Debit Card / Net Banking / UPI</p>
               </div>
 
             </div>

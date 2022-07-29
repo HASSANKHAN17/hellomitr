@@ -19,7 +19,6 @@ function TransactionSingle(props) {
         version: 'wc/v1',
         queryStringAuth:true
       });
-      //const [seconds, setSeconds] = React.useState(5);
     
      
       const [transactionStatus,setTransactionStatus]= React.useState(true)
@@ -27,25 +26,45 @@ function TransactionSingle(props) {
       var url_string = window.location.href
       var url = new URL(url_string);
       console.log(url)
-      var transactionId = url.searchParams.get("transactionId");
-      var address = url.searchParams.get("address");
-      var gateway = url.searchParams.get("gateway");
-      let payment_method = gateway
-      console.log(transactionId,address,gateway);
-      console.log("transactionid",transactionId.length)
-        // let transactionId = props.location.search.split("?")[2]
-        // transactionId=transactionId.split("=")[1]
-        // let addressNo = props.location.search.split("?")[1]
+      let str = url.search
+      let count = 0
+      let payment_method=""
+      var transactionId =""
+      var address =""
+      var gateway =""
+      for (let letter of str){
+          if(letter === "?"){
+              count = count + 1;
+          }
+      }
+      if(count ===2){
+        // do computation for cashe
+        url.search = `?${url.search.split("?")[1]}&${url.search.split("?")[2]}`
+         transactionId = url.searchParams.get("transactionId");
+         address = url.searchParams.get("address");
+         gateway = "cashe";
+         payment_method = gateway
+        console.log(transactionId,address,gateway);
+        console.log("transactionid",transactionId.length)
+      }else{
+        //do computation for other gateways
+         transactionId = url.searchParams.get("transactionId");
+         address = url.searchParams.get("address");
+         gateway = url.searchParams.get("gateway");
+         payment_method = gateway
+        console.log(transactionId,address,gateway);
+        console.log("transactionid",transactionId.length)
+      }
+      
       let line_items = [{product_id:props.singleItem.id,quantity:1,images:props.singleItem.images}]
-        // transactionId = transactionId.split("&")[0]
-        // let payment_method = props.location.state?"razorpay":"cashe"
-
-
 
         if(transactionId==="null" || transactionId.length===0){
           //failed transaction
           setTransactionStatus(false)
-          props.history.push("/checkout")
+          setTimeout(() => {
+            props.history.push("/checkout")  
+          }, 3000);
+          
                   
         }else{
             if(address.toString() === "1"){

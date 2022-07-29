@@ -60,6 +60,14 @@ function ItemDetail(props) {
     return Math.ceil(100-(details.price/details.regular_price*100))
   }
   React.useEffect(()=>{
+    const script = document.createElement("script");
+
+    script.src = "https://assets.snapmint.com/assets/merchant/1867/snapmint_emi.js";
+    script.async = true;
+    script.type="text/javascript"
+    script.innerHTML = "var mid=1867"
+
+    document.body.appendChild(script);
     if(props.cart.length>0){
       let av = props.cart.filter(item=>item.id===details.id)
       if(av.length>0){
@@ -175,7 +183,14 @@ function ItemDetail(props) {
                 }
               </div>
             }
-
+            <div className="snap_emi_txt">
+            </div>
+       <span style={{display:"none"}} className="snapmint_lowest_emi_value hidden" 
+       data-snapmint-price={details.price}
+       data-snapmint-subvention="false" 
+       data-snapmint-skuid={details.id}
+       data-snapmint-merchant_id="1867" 
+       data-snapmint-page="product"></span>
             {inCart.length<=0?(details.in_stock?<div className="row m-auto">
                 <Button onClick={()=>props.addToCart(details)} variant="contained">Add to cart</Button>
                 <Button onClick={()=>{
@@ -204,14 +219,7 @@ function ItemDetail(props) {
             </div>
             }
             <p className="mt-3">Sold by: <b>Hellomitr outlook</b></p>
-            <div className="snap_emi_txt">
-s          </div>
-       <span className="snapmint_lowest_emi_value hidden" 
-       data-snapmint-price="2500" 
-       data-snapmint-subvention="false" 
-       data-snapmint-skuid="productsku" 
-       data-snapmint-merchant_id="1867" 
-       data-snapmint-page="product"></span>
+
         </div>
 
 
@@ -260,7 +268,7 @@ s          </div>
             <section className="attributes"> 
                 {
                   details.attributes.map((item,index)=>(
-                    <div className="row align-items-center">
+                    <div key={index} className="row align-items-center">
                     <p className="col-4 key">{item.name}</p>
                     <p className="col-8 value">{item.options.map(op=><p>{op}</p>)}</p>
                     </div>
