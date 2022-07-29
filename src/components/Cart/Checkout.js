@@ -137,7 +137,7 @@ function Checkout(props) {
  const renderSnapMint = ()=>{
   return  <div>
      <form id="snapmint" name="snapmint" method="post" action={`${process.env.REACT_APP_SNAPMINT}`}>
-  <input type="hidden" name="merchant_key" value="2ZEmnyH9" />
+  <input type="hidden" name="merchant_key" value={process.env.REACT_APP_SNAPMINT_MERCHANT_KEY} />
   <input type="hidden" name="order_id" value={uid} />
   <input type="hidden" name="order_value" value={finalTotal().toString()} />
   <input type="hidden" name="merchant_confirmation_url" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=snapmint&transactionId=${uid}`}/>
@@ -147,7 +147,7 @@ function Checkout(props) {
   <input type="hidden" name="last_name" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()}/>
   <input type="hidden" name="full_name" value={address===1?(props.user.billing.first_name.toString()+' '+props.user.billing.last_name.toString()):(props.user.shipping.first_name.toString()+' '+props.user.shipping.last_name.toString())}/>
   <input type="hidden" name="email" value={props.user.email.toString()}/>
-  <input type="hidden" name="mobile" value={`7777788888`}/> 
+  <input type="hidden" name="mobile" value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()}/> 
   {/* value={address===1?props.user.billing.phone.toString():props.user.shipping.phone.toString()} */}
   <input type="hidden" name="shipping_fees" value="0.0000" />
   <input type="hidden" name="discount_code" value="" />
@@ -185,7 +185,7 @@ function Checkout(props) {
   <input type="hidden" name="products[][udf2]" value="UDF2" />
   <input type="hidden" name="products[][udf3]" value="UDF3" />
   <input type="hidden" name="checksum_hash" value={shaString} />
-  <button className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-fullWidth MuiButtonBase-root btn css-jio58p-MuiButtonBase-root-MuiButton-root" tabindex="0" type="submit">Pay now<span class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"></span></button>
+  <Button type="submit" className="btn" variant="contained" fullWidth>Pay now</Button>
 </form>
 
 
@@ -197,7 +197,7 @@ function Checkout(props) {
 const renderPayu = ()=>{
 return <div>
 <form action={`${process.env.REACT_APP_PAYU}`} method='post'>
-<input type="hidden" name="key" value="Sog1Og" />
+<input type="hidden" name="key" value={process.env.REACT_APP_PAYU_KEY} />
 <input type="hidden" name="txnid" value={uid.toString()} />
 <input type="hidden" name="productinfo" value="Hellomitr" />
 <input type="hidden" name="amount" value={finalTotal().toString()} />
@@ -312,7 +312,7 @@ const renderButton = ()=>{
               </div>
 
               <div onClick={()=>{
-                const shaVal = `${process.env.REACT_APP_SNAPMINT_MERCHANT_KEY}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${`${process.env.REACT_APP_SNAPMINT_TOKEN}`}`
+                const shaVal = `${process.env.REACT_APP_SNAPMINT_TOKEN}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${`${process.env.REACT_APP_SNAPMINT_MERCHANT_KEY}`}`
                 console.log(shaVal)
                 sha512(shaVal)
                 .then(res=>{
