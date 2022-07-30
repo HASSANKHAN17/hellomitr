@@ -321,7 +321,7 @@ const renderButton = ()=>{
                 })
                 }} className={selected===1?"col-5 pg active":"col-5 pg"}>
               <img src={snapmintlogo} alt="snapmintlogo" />
-              <p>Credit Card / Debit Card / Net Banking / UPI</p>
+              <p>No cost EMI / Low Cost EMI</p>
               </div>
 
               <div onClick={()=>{
