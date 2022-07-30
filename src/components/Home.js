@@ -15,7 +15,7 @@ import bannerdiv2 from '../Images/banners/bannerdiv2.jpg'
 import bannerdiv3 from '../Images/banners/bannerdiv3.jfif'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import img1 from '../Images/carousel1banner/tecnoarrival'
+import img1 from '../Images/carousel1banner/tecnoarrival.png'
 import img2 from '../Images/carousel1banner/slider2.jpeg'
 import img3 from '../Images/carousel1banner/slider3.jpeg'
 import imgemi from '../Images/carousel1banner/76232_2eh273ye.png'
