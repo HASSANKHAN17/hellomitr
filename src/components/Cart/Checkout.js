@@ -114,21 +114,21 @@ function Checkout(props) {
     // test  axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:10000,tenure:3,mobilenumber:"9665276786",authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:"0142334456",merchantname:"Amazon",returnPageURL:"http://localhost:3000/orders"})
     //https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction
     //https://uat-paymentgateway.cashe.co.in 2MLFiopx+givx5mPf8CchQ==  https://paymentgateway.cashe.co.in JQ5aLPRjELwWkrG7Vfpczw==
-    // axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=cashe`})
-    // .then(res=>{
-    //   window.location.href = `https://secure.payments.cashe.co.in/Login?transaction=${res.data.entity}`;
-    // })
-    // .catch(err=>{
-    // })
-
-
-    //test 
-    axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=cashe`})
+    axios.post(`https://paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"JQ5aLPRjELwWkrG7Vfpczw==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=cashe`})
     .then(res=>{
-      window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
+      window.location.href = `https://secure.payments.cashe.co.in/Login?transaction=${res.data.entity}`;
     })
     .catch(err=>{
     })
+
+
+    //test 
+    // axios.post(`https://uat-paymentgateway.cashe.co.in/api/cashe/paymentgateway/customer/generateTransaction`,{amount:finalTotal(),tenure:selected,mobilenumber:props.user.billing.phone,authKey:"2MLFiopx+givx5mPf8CchQ==",leafRefNo:uuidv4(),merchantname:"Hellomitr",returnPageURL:`${process.env.REACT_APP_DEVELOPMENT}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=cashe`})
+    // .then(res=>{
+    //   window.location.href = `https://secure.qapayments.cashe.co.in/Login?transaction=${res.data.entity}`;
+    // })
+    // .catch(err=>{
+    // })
 
   }
 
@@ -141,7 +141,7 @@ function Checkout(props) {
   <input type="hidden" name="order_id" value={uid} />
   <input type="hidden" name="order_value" value={finalTotal().toString()} />
   <input type="hidden" name="merchant_confirmation_url" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=snapmint&transactionId=${uid}`}/>
-  <input type="hidden" name="merchant_failure_url" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=payubiz&transactionId='null'`}/>
+  <input type="hidden" name="merchant_failure_url" value={`${process.env.REACT_APP_SERVER}/${Object.keys(props.singleItem).length>0?'singletransaction':'transaction'}?address=${address}&gateway=snapmint&transactionId='null'`}/>
   <input type="hidden" name="first_name" value={address===1?props.user.billing.first_name.toString():props.user.shipping.first_name.toString()}/>
   <input type="hidden" name="middle_name" value="" />
   <input type="hidden" name="last_name" value={address===1?props.user.billing.last_name.toString():props.user.shipping.last_name.toString()}/>
@@ -311,8 +311,8 @@ const renderButton = ()=>{
                 <p>Credit Card / Debit Card / Net Banking / UPI</p>
               </div>
 
-              <div onClick={()=>{
-                const shaVal = `${process.env.REACT_APP_SNAPMINT_TOKEN}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${`${process.env.REACT_APP_SNAPMINT_MERCHANT_KEY}`}`
+              {/* <div onClick={()=>{
+                const shaVal = `${`${process.env.REACT_APP_SNAPMINT_MERCHANT_KEY}`}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${process.env.REACT_APP_SNAPMINT_TOKEN}`
                 console.log(shaVal)
                 sha512(shaVal)
                 .then(res=>{
@@ -322,7 +322,7 @@ const renderButton = ()=>{
                 }} className={selected===1?"col-5 pg active":"col-5 pg"}>
               <img src={snapmintlogo} alt="snapmintlogo" />
               <p>Credit Card / Debit Card / Net Banking / UPI</p>
-              </div>
+              </div> */}
 
               <div onClick={()=>{
                 const shaVal = `${process.env.REACT_APP_PAYU_KEY}|${uid}|${finalTotal().toString()}|Hellomitr|${address===1?props.user.billing.first_name:props.user.shipping.first_name}|${props.user.email}|||||||||||${process.env.REACT_APP_PAYU_SALT}`
