@@ -311,7 +311,7 @@ const renderButton = ()=>{
                 <p>Credit Card / Debit Card / Net Banking / UPI</p>
               </div>
 
-              {/* <div onClick={()=>{
+              <div onClick={()=>{
                 const shaVal = `${`${process.env.REACT_APP_SNAPMINT_MERCHANT_KEY}`}|${uid}|${finalTotal()}|${address===1?(props.user.billing.first_name+' '+props.user.billing.last_name):(props.user.shipping.first_name+' '+props.user.shipping.last_name)}|${props.user.email}|${process.env.REACT_APP_SNAPMINT_TOKEN}`
                 console.log(shaVal)
                 sha512(shaVal)
@@ -322,7 +322,7 @@ const renderButton = ()=>{
                 }} className={selected===1?"col-5 pg active":"col-5 pg"}>
               <img src={snapmintlogo} alt="snapmintlogo" />
               <p>Credit Card / Debit Card / Net Banking / UPI</p>
-              </div> */}
+              </div>
 
               <div onClick={()=>{
                 const shaVal = `${process.env.REACT_APP_PAYU_KEY}|${uid}|${finalTotal().toString()}|Hellomitr|${address===1?props.user.billing.first_name:props.user.shipping.first_name}|${props.user.email}|||||||||||${process.env.REACT_APP_PAYU_SALT}`

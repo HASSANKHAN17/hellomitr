@@ -151,18 +151,18 @@ function Home(props) {
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={22}
-                totalSlides={8}
+                totalSlides={6}
                 isPlaying
                 >
                 <Slider>
-                {/* <Slide index={0}><img className="carousel1" src={img4} alt="img4" /></Slide> */}
+                <Slide index={0}><img className="carousel1" src={img4} alt="img4" /></Slide>
+                <Slide index={6}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
                 <Slide index={1}><img className="carousel1" src={img8} alt="img8" /></Slide>
                 <Slide index={2}><img className="carousel1" src={img6} alt="img1" /></Slide>
                 <Slide index={3}><img className="carousel1" src={img7} alt="img2" /></Slide>
-                <Slide index={4}><img className="carousel1" src={img4} alt="img4" /></Slide>
+                {/* <Slide index={4}><img className="carousel1" src={img4} alt="img4" /></Slide> */}
                 <Slide index={5}><img className="carousel1" src={img5} alt="img5" /></Slide>
-                <Slide index={6}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
-                <Slide index={7}><img className="carousel1" src={img1} alt="img1" /></Slide>
+                {/* <Slide index={7}><img className="carousel1" src={img1} alt="img1" /></Slide> */}
                 </Slider>
             </CarouselProvider>
 
