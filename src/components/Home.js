@@ -15,7 +15,7 @@ import bannerdiv2 from '../Images/banners/bannerdiv2.jpg'
 import bannerdiv3 from '../Images/banners/bannerdiv3.jfif'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import img1 from '../Images/carousel1banner/reno8 coming.png'
+import img1 from '../Images/carousel1banner/tecnoarrival'
 import img2 from '../Images/carousel1banner/slider2.jpeg'
 import img3 from '../Images/carousel1banner/slider3.jpeg'
 import imgemi from '../Images/carousel1banner/76232_2eh273ye.png'
@@ -151,18 +151,17 @@ function Home(props) {
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={22}
-                totalSlides={6}
+                totalSlides={7}
                 isPlaying
                 >
                 <Slider>
                 <Slide index={0}><img className="carousel1" src={img4} alt="img4" /></Slide>
-                <Slide index={6}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
-                <Slide index={1}><img className="carousel1" src={img8} alt="img8" /></Slide>
-                <Slide index={2}><img className="carousel1" src={img6} alt="img1" /></Slide>
-                <Slide index={3}><img className="carousel1" src={img7} alt="img2" /></Slide>
-                {/* <Slide index={4}><img className="carousel1" src={img4} alt="img4" /></Slide> */}
-                <Slide index={5}><img className="carousel1" src={img5} alt="img5" /></Slide>
-                {/* <Slide index={7}><img className="carousel1" src={img1} alt="img1" /></Slide> */}
+                <Slide index={1}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
+                <Slide index={2}><img className="carousel1" src={img1} alt="img1" /></Slide>
+                <Slide index={3}><img className="carousel1" src={img8} alt="img8" /></Slide>
+                <Slide index={4}><img className="carousel1" src={img6} alt="img1" /></Slide>
+                <Slide index={5}><img className="carousel1" src={img7} alt="img2" /></Slide>
+                <Slide index={6}><img className="carousel1" src={img5} alt="img5" /></Slide>
                 </Slider>
             </CarouselProvider>
 
