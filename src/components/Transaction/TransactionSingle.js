@@ -58,7 +58,7 @@ function TransactionSingle(props) {
       
       let line_items = [{product_id:props.singleItem.id,quantity:1,images:props.singleItem.images}]
 
-        if(transactionId==="null" || transactionId.length===0){
+        if(transactionId==="'null'" || transactionId.length===0 || transactionId==='null'){
           //failed transaction
           setTransactionStatus(false)
           setTimeout(() => {

@@ -61,7 +61,7 @@ function Transaction(props) {
 
 
 
-        if(transactionId==="null" || transactionId.length===0){
+        if(transactionId==="'null'" || transactionId.length===0 || transactionId==='null'){
           //failed transaction
           setTransactionStatus(false)
           setTimeout(() => {
