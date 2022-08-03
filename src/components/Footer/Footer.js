@@ -16,7 +16,6 @@ function Footer() {
     <div className="footer row m-auto justify-content-between">
         <div className="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-3">
             <img src={Logo} alt="logo" className="logo" />
-            <p className="subtitle">Desh ka online marketplace</p>
             <div className="startupindiadiv">
             <img src={startupindia} alt="startupindia" className="startupindia" />
             </div>
