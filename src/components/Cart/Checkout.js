@@ -18,6 +18,7 @@ import {emptySingleItem} from '../redux/SingleItem/singleItemActions'
 import {storeFinalItem} from '../redux/FinalItem/finalItemAction'
 import AddressModal from '../Dashboard/Addresses/AddressModal'
 import {Alert} from '@mui/material'
+import {addressCheck} from '../utils/Functions'
 function sha512(str) {
   return crypto.subtle.digest("SHA-512", new TextEncoder("utf-8").encode(str)).then(buf => {
     return Array.prototype.map.call(new Uint8Array(buf), x=>(('00'+x.toString(16)).slice(-2))).join('');
@@ -35,7 +36,7 @@ function Checkout(props) {
   const [error,setError]=React.useState("")
   const [shaString,setShaString]=React.useState("")
   const [uid,setUid]=React.useState("")
-  console.log("uid is",uid)
+
   var WooCommerce = new WooCommerceAPI({
     url: 'https://api.hellomitr.com/',
     consumerKey: 'ck_d7bd31411532bc4fbfa97da6d587492acb1ed00c',
@@ -340,7 +341,7 @@ const renderButton = ()=>{
             </div>
             {error.length>0&&<Alert className="alert" severity="error">{error}</Alert>}
             {
-              renderButton()
+              addressCheck(props.user,address)?<p style={{color:"red",fontWeight:"bold"}}>Please fill all the fields for the selected address</p>:renderButton()
             }
             {/* {
               selected===1?
