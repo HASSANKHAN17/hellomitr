@@ -157,13 +157,13 @@ function Home(props) {
                 >
                 <Slider>
                 <Slide index={0}><img className="carousel1" src={img9} alt="img4" /></Slide>
-                <Slide index={1}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
-                <Slide index={2}><img className="carousel1" src={img1} alt="img1" /></Slide>
-                <Slide index={3}><img className="carousel1" src={img8} alt="img8" /></Slide>
-                <Slide index={4}><img className="carousel1" src={img6} alt="img1" /></Slide>
-                <Slide index={5}><img className="carousel1" src={img7} alt="img2" /></Slide>
-                <Slide index={6}><img className="carousel1" src={img5} alt="img5" /></Slide>
-                <Slide index={7}><img className="carousel1" src={img4} alt="img9" /></Slide>
+                <Slide index={1}><img className="carousel1" src={img4} alt="img9" /></Slide>
+                <Slide index={2}><img className="carousel1" src={imgemi} alt="img6" /></Slide>
+                <Slide index={3}><img className="carousel1" src={img1} alt="img1" /></Slide>
+                <Slide index={4}><img className="carousel1" src={img8} alt="img8" /></Slide>
+                <Slide index={5}><img className="carousel1" src={img6} alt="img1" /></Slide>
+                <Slide index={6}><img className="carousel1" src={img7} alt="img2" /></Slide>
+                <Slide index={7}><img className="carousel1" src={img5} alt="img5" /></Slide>
                 </Slider>
             </CarouselProvider>
 
@@ -400,6 +400,65 @@ function Home(props) {
                 {
                     smartphone.batch1.length>0?(
                         smartphone.batch1.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+                </Slider>
+                
+                {/* <div className="row carousalbtncont justify-content-between">
+                    <ButtonBack className="carousalbtn"><ArrowBackIosIcon sx={{ml:.5}} /></ButtonBack>
+                    <ButtonNext className="carousalbtn"><ArrowForwardIosIcon /></ButtonNext>
+                </div> */}
+            </CarouselProvider>
+
+            <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={height}
+                totalSlides={3}
+                >
+                <Slider>
+                    
+                <Slide index={0}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartphone.batch2.length>0?(
+                        smartphone.batch2.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+
+                 <Slide index={1}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartphone.batch1.length>0?(
+                        smartphone.batch1.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+
+                 <Slide index={2}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartphone.batch3.length>0?(
+                        smartphone.batch3.map((item,index)=>(
                             <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
                             <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
                             </div>            
