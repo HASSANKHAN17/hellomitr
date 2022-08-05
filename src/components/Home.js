@@ -42,6 +42,8 @@ import HeadphonesBatteryRoundedIcon from '@mui/icons-material/HeadphonesBatteryR
 import WatchRoundedIcon from '@mui/icons-material/WatchRounded';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import bybrandposter from '../Images/banners/bybrandposter.png'
+import beforesmartwatch from '../Images/banners/beforesmartwatch.png'
 import axios from 'axios'
 function Home(props) {
     const [smartphone,setSmartPhone]=React.useState({batch1:[],batch2:[],batch3:[]})
@@ -235,7 +237,11 @@ function Home(props) {
             </section>
 
 
-            <section className="shadow-sm brands">
+<div className="mb-5">
+    <img src={bybrandposter} alt="bybrandposter" style={{width:"100vw"}} />
+</div>
+
+            {/* <section className="shadow-sm brands">
             <h1>Shop by Brands</h1>
             <div className="row m-auto justify-content-center align-items-center" onClick={()=>props.history.push("/categories","tcl")}>
                 <div className="col-3">
@@ -269,7 +275,7 @@ function Home(props) {
 
             </div>
               
-            </section>
+            </section> */}
 
 
 
@@ -319,6 +325,72 @@ function Home(props) {
                 {
                     smartphone.batch3.length>0?(
                         smartphone.batch3.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+                </Slider>
+                
+                {/* <div className="row carousalbtncont justify-content-between">
+                    <ButtonBack className="carousalbtn"><ArrowBackIosIcon sx={{ml:.5}} /></ButtonBack>
+                    <ButtonNext className="carousalbtn"><ArrowForwardIosIcon /></ButtonNext>
+                </div> */}
+            </CarouselProvider>
+            </section>
+
+<div className="mb-5"> 
+    <img src={beforesmartwatch} alt="beforesmartwatch" style={{width:"100vw"}} />
+</div>
+
+            <section className="trending">
+                <h2><WatchRoundedIcon className="icon" /> Smartwatch</h2>
+                <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={height}
+                totalSlides={3}
+                >
+                <Slider>
+                    
+                <Slide index={0}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartwatch.batch1.length>0?(
+                        smartwatch.batch1.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+
+                 <Slide index={1}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartwatch.batch2.length>0?(
+                        smartwatch.batch2.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+
+                 <Slide index={2}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartwatch.batch3.length>0?(
+                        smartwatch.batch3.map((item,index)=>(
                             <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
                             <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
                             </div>            
@@ -677,67 +749,6 @@ function Home(props) {
 
 
 
-            <section className="trending">
-                <h2><WatchRoundedIcon className="icon" /> Smartwatch</h2>
-                <CarouselProvider
-                naturalSlideWidth={100}
-                naturalSlideHeight={height}
-                totalSlides={3}
-                >
-                <Slider>
-                    
-                <Slide index={0}>
-                <div className="row m-auto justify-content-around">
-
-                {
-                    smartwatch.batch1.length>0?(
-                        smartwatch.batch1.map((item,index)=>(
-                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
-                            </div>            
-                    ))
-                    ):null
-                }
-                </div>
-                 </Slide>
-
-                 <Slide index={1}>
-                <div className="row m-auto justify-content-around">
-
-                {
-                    smartwatch.batch2.length>0?(
-                        smartwatch.batch2.map((item,index)=>(
-                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
-                            </div>            
-                    ))
-                    ):null
-                }
-                </div>
-                 </Slide>
-
-                 <Slide index={2}>
-                <div className="row m-auto justify-content-around">
-
-                {
-                    smartwatch.batch3.length>0?(
-                        smartwatch.batch3.map((item,index)=>(
-                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
-                            </div>            
-                    ))
-                    ):null
-                }
-                </div>
-                 </Slide>
-                </Slider>
-                
-                {/* <div className="row carousalbtncont justify-content-between">
-                    <ButtonBack className="carousalbtn"><ArrowBackIosIcon sx={{ml:.5}} /></ButtonBack>
-                    <ButtonNext className="carousalbtn"><ArrowForwardIosIcon /></ButtonNext>
-                </div> */}
-            </CarouselProvider>
-            </section>
 
         
 

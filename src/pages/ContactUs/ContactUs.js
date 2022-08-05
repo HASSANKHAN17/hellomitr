@@ -18,7 +18,9 @@ function ContactUs() {
                     help you?</h1>
                     <p>We are available 6 days a week!</p>
                     <h3>1800 572 8211</h3>
-                    <h4>Plot No 3 Sant Nagar Main Road Karnal Haryana 132001</h4>
+                    <h4>Noval Tech Park
+#46/3, 4, GB Palya Hosur Road,
+Bengaluru Karnataka 560068</h4>
                     <p>Monday – Friday: 9:00-6:00</p>
                     <p>Saturday & Sunday : Holiday Off</p>
                     <h5>helpline@hellomitr.com</h5>
