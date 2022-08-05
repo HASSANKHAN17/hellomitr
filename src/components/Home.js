@@ -24,6 +24,7 @@ import img5 from '../Images/carousel1banner/slider5.jpeg'
 import img6 from '../Images/carousel1banner/slider6.1.png'
 import img7 from '../Images/carousel1banner/slider7.jpeg'
 import img8 from '../Images/carousel1banner/slider8.1.png'
+import img9 from '../Images/carousel1banner/firebolt_banner.png'
 import c2img1 from '../Images/carousel2banner/cashebanner.jpeg'
 import WooCommerceAPI from 'woocommerce-api'
 import tcllogo from '../Images/brands/tclcropped.jpg'
@@ -151,7 +152,7 @@ function Home(props) {
             <CarouselProvider
                 naturalSlideWidth={100}
                 naturalSlideHeight={22}
-                totalSlides={7}
+                totalSlides={8}
                 isPlaying
                 >
                 <Slider>
@@ -162,6 +163,7 @@ function Home(props) {
                 <Slide index={4}><img className="carousel1" src={img6} alt="img1" /></Slide>
                 <Slide index={5}><img className="carousel1" src={img7} alt="img2" /></Slide>
                 <Slide index={6}><img className="carousel1" src={img5} alt="img5" /></Slide>
+                <Slide index={7}><img className="carousel1" src={img9} alt="img9" /></Slide>
                 </Slider>
             </CarouselProvider>
 

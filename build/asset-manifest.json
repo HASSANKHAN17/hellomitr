@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.c11f21ee.chunk.css",
-    "main.js": "/static/js/main.4536f67d.chunk.js",
-    "main.js.map": "/static/js/main.4536f67d.chunk.js.map",
+    "main.js": "/static/js/main.4e261ca6.chunk.js",
+    "main.js.map": "/static/js/main.4e261ca6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.4212d654.js",
     "runtime-main.js.map": "/static/js/runtime-main.4212d654.js.map",
     "static/css/2.08915677.chunk.css": "/static/css/2.08915677.chunk.css",
@@ -35,6 +35,7 @@
     "static/media/cashebanner.85eb161f.jpeg": "/static/media/cashebanner.85eb161f.jpeg",
     "static/media/checked.6f298cca.png": "/static/media/checked.6f298cca.png",
     "static/media/china-electronic-wholesale.c5da2e2d.jpg": "/static/media/china-electronic-wholesale.c5da2e2d.jpg",
+    "static/media/firebolt_banner.3a922f9e.png": "/static/media/firebolt_banner.3a922f9e.png",
     "static/media/furnitures.3b228d81.png": "/static/media/furnitures.3b228d81.png",
     "static/media/hdfc.19b98ac1.jpeg": "/static/media/hdfc.19b98ac1.jpeg",
     "static/media/icici.ea1fd3e4.jpeg": "/static/media/icici.ea1fd3e4.jpeg",
@@ -65,6 +66,6 @@
     "static/css/2.08915677.chunk.css",
     "static/js/2.90dc5feb.chunk.js",
     "static/css/main.c11f21ee.chunk.css",
-    "static/js/main.4536f67d.chunk.js"
+    "static/js/main.4e261ca6.chunk.js"
   ]
 }
