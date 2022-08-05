@@ -355,12 +355,72 @@ function Home(props) {
             </CarouselProvider>
             </section> */}
 
+                <section className="trending">
+                <h2><SmartphoneRoundedIcon className="icon" />More On Smartphones</h2>
+                <CarouselProvider
+                naturalSlideWidth={100}
+                naturalSlideHeight={height}
+                totalSlides={3}
+                >
+                <Slider>
+                    
+                <Slide index={0}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartphone.batch3.length>0?(
+                        smartphone.batch3.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+
+                 <Slide index={1}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartphone.batch2.length>0?(
+                        smartphone.batch2.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+
+                 <Slide index={2}>
+                <div className="row m-auto justify-content-around">
+
+                {
+                    smartphone.batch1.length>0?(
+                        smartphone.batch1.map((item,index)=>(
+                            <div key={index} className="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                            <Item cid={193} item={item} name={item.name} rating={item.average_rating} regularPrice={item.regular_price} price={item.price} image={item.images[0].src} />
+                            </div>            
+                    ))
+                    ):null
+                }
+                </div>
+                 </Slide>
+                </Slider>
+                
+                {/* <div className="row carousalbtncont justify-content-between">
+                    <ButtonBack className="carousalbtn"><ArrowBackIosIcon sx={{ml:.5}} /></ButtonBack>
+                    <ButtonNext className="carousalbtn"><ArrowForwardIosIcon /></ButtonNext>
+                </div> */}
+            </CarouselProvider>
+            </section>
 
 
 
 
-
-            <section className="trending">
+            {/* <section className="trending">
                 <h2><TvRoundedIcon className="icon" /> LED TVs</h2>
                  <CarouselProvider
                 naturalSlideWidth={100}
@@ -415,12 +475,9 @@ function Home(props) {
                  </Slide>
                 </Slider>
                 
-                {/* <div className="row carousalbtncont justify-content-between">
-                    <ButtonBack className="carousalbtn"><ArrowBackIosIcon sx={{ml:.5}} /></ButtonBack>
-                    <ButtonNext className="carousalbtn"><ArrowForwardIosIcon /></ButtonNext>
-                </div> */}
+
             </CarouselProvider>
-            </section>
+            </section> */}
 
 
 
@@ -430,7 +487,7 @@ function Home(props) {
 
 
 
-            <section className="trending">
+            {/* <section className="trending">
                 <h2><LaptopMacRoundedIcon className="icon" /> Laptop</h2>
                 <CarouselProvider
                 naturalSlideWidth={100}
@@ -485,12 +542,8 @@ function Home(props) {
                  </Slide>
                 </Slider>
                 
-                {/* <div className="row carousalbtncont justify-content-between">
-                    <ButtonBack className="carousalbtn"><ArrowBackIosIcon sx={{ml:.5}} /></ButtonBack>
-                    <ButtonNext className="carousalbtn"><ArrowForwardIosIcon /></ButtonNext>
-                </div> */}
             </CarouselProvider>
-            </section>
+            </section> */}
 
 
 

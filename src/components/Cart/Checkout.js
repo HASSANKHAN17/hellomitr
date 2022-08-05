@@ -341,7 +341,7 @@ const renderButton = ()=>{
             </div>
             {error.length>0&&<Alert className="alert" severity="error">{error}</Alert>}
             {
-              addressCheck(props.user,address)?<p style={{color:"red",fontWeight:"bold"}}>Please fill all the fields for the selected address</p>:renderButton()
+              addressCheck(props.user,address)?<p style={{color:"red",fontWeight:"bold",textAlign:"center",backgroundColor:"#ffdede",padding:"2%"}}>Please fill all the fields for the selected address</p>:renderButton()
             }
             {/* {
               selected===1?
