@@ -238,7 +238,9 @@ function Home(props) {
 
 
 <div className="mb-5">
-    <img src={bybrandposter} alt="bybrandposter" style={{width:"100vw"}} />
+<img src={beforesmartwatch} alt="beforesmartwatch" style={{width:"100vw"}} />
+
+
 </div>
 
             {/* <section className="shadow-sm brands">
@@ -343,7 +345,7 @@ function Home(props) {
             </section>
 
 <div className="mb-5"> 
-    <img src={beforesmartwatch} alt="beforesmartwatch" style={{width:"100vw"}} />
+<img src={bybrandposter} alt="bybrandposter" style={{width:"100vw"}} />
 </div>
 
             <section className="trending">
