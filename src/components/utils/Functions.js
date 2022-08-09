@@ -6,7 +6,7 @@ console.log("shipping,,,,,,,,,,,,,,,,,,,billing",address)
 let flag = false
 if(address===0){
     _.map(shipping,(value,key)=>{
-        if(value.length<=0 && key!=="company" && key!=="address_2" && key!=="country"){
+        if(value.length<=0 && key!=="email" && key!=="company" && key!=="address_2" && key!=="country"){
             flag=true;
             console.log("shipping",value,key)
             return;
@@ -14,7 +14,7 @@ if(address===0){
     })
 }else{
     _.map(billing,(value,key)=>{
-        if(value.length<=0 && key!=="company" && key!=="address_2" && key!=="country"){
+        if(value.length<=0 && key!=="email" && key!=="company" && key!=="address_2" && key!=="country"){
             flag=true;
             console.log("billing",value,key)
             return;
